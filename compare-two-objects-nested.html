@@ -1,13 +1,15 @@
 <!doctype>
 <html>
   <head>
-    <title>Compare Two Object in Nested</title>
+    <title>Deep Compare Between Two Objects</title>
     <script>
-      function compareObject(obj1,obj2){	
+      function deepCompareObjects(obj1,obj2){	
         let key1 = Object.getOwnPropertyNames(obj1),
         key2 = Object.getOwnPropertyNames(obj2);
-        key1.sort();
-        key2.sort();
+        // key1.sort();
+        // key2.sort();
+        if(key1.length !== key2.length) return false;
+
         for(let key in key1){
           if(typeof obj1[key1[key]] !== typeof obj2[key2[key]]){
             return false;
@@ -24,6 +26,10 @@
       var obj1 = {a:1,b:{c:2,d:3}};
       var obj2 = obj1;
       console.log(compareObject(obj1,obj2));
+      /*Deep Compare Between two objects
+      put this function into script tag or copy function and paste into your code
+      call this function with name and pass two arguments as a objects
+      this function return true or false*/
     </script>
   </head>
   <body>
