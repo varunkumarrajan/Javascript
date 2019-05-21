@@ -1,0 +1,19 @@
+<!doctype>
+<html>
+
+  <head>
+    <title>distribute m items among n people</title>
+    <script>
+      const mangoProblem = (m,n) => {
+	      return factorial(m+n-1)/ ((factorial(n-1)) * (factorial(m)));
+        function factorial(num){
+          if(num === 0)
+          return 1;
+
+          return num * factorial(num-1);
+        }
+      }
+      console.log(mangoProblem(3,2));// return 4
+    </script>
+  </head>
+</html>
