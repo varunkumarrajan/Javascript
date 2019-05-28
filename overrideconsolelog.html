@@ -1,0 +1,17 @@
+<script>
+(function(o){
+    if(o.__ts__) {return;} 
+    let slice = Array.prototype.slice;
+    ['log', 'debug', 'warn', 'error', 'info'].forEach(function(f) {
+        if(o.hasOwnProperty(f)) {
+            let _= o[f];
+            o[f] = function(){
+                var args = slice.call(arguments)
+                args.unshift(new Date().toISOString())
+                return _.apply(o, args);            
+            };
+        }
+    });
+    o.__ts__ = true
+})(console)
+</script>

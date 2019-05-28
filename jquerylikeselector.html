@@ -1,0 +1,29 @@
+<script>
+    (function (root, factory) {
+        return factory(root);
+    })(typeof window !== 'undefined' ? window : this , function (window) {
+        function dollarFunction(){
+            if(!arguments[0]) { return this; }
+            let len = arguments.length;
+            if(arguments[0].substring(0,1) !== '#') { return this; }
+            if(len >= 1){
+                let elements = [];
+                Array.prototype.slice.call(arguments).forEach(function(ele){
+                    if(ele.substring(0,1) === '#') {
+                        elements.push(document.getElementById(ele.substring(1)))
+                    }
+                })
+                return elements;
+            } else {
+                return document.getElementById(arguments[0].substring(1));
+            } 
+        }
+        window.$ = dollarFunction;
+        return window;
+    })
+</script>
+<body>
+    <div id="name">
+        <input type="text" id="inputName">
+    </div>
+</body>

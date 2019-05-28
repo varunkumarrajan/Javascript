@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <style></style>
+    <script>
+        window.onload = function(){
+            let input = document.querySelector('input');
+            input.addEventListener('keydown', debouce((event)=> {
+                console.log(event.target.value)
+            },350))
+        }
+        debouce = (fn, delay) => {
+            let clearId            
+            return function() {
+                let context = this, args = arguments;
+                clearTimeout(clearId)
+                clearId = setTimeout(() =>{
+                    fn.apply(context, args)
+                },delay)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text">
+    </div>
+</body>

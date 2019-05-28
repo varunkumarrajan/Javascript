@@ -1,0 +1,6 @@
+<script>
+const per = (str1,str2) => {
+	if(str1.length !== str2.length) return false;
+	return str1.split('').every(item => str2.indexOf(item) !== -1 );
+}
+</script>

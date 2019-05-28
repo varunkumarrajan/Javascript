@@ -1,0 +1,40 @@
+<script>
+// Find Missing Numbers In Array
+// Via Formula upper number ((N * (N +1)) / 2) and lower number ((M * (M -1)) / 2)
+// First Example Using this formula
+var arr = [2,3,4,4,2,9,4,6,1];
+var getMaxNumber = Math.max(...arr); // using spread no need to use null spread turns array into a list of arguments
+var getMinNumber = Math.min(...arr); // using spread no need to use null spread turns array into a list of arguments
+// Method 1 for using formula
+function findMissingNumberInArrayConsecutive(arr, upper, lower){
+    let sumOfElement = 0;
+    arr.forEach((ele)=>{
+        sumOfElement += ele;
+    })
+    let upperNumberWithFobusN = (upper * (upper + 1 ) / 2);
+    let upperNumberWithFobusM = (lower * (lower - 1 ) / 2);
+    let sub = upperNumberWithFobusN - upperNumberWithFobusM;
+    return sub - sumOfElement;
+}
+findMissingNumberInArrayConsecutive(arr,getMaxNumber,getMinNumber);
+// Method 2 for without using formula
+function findMissingNumberInArray(arr,max,min){
+    for(let i =min;i<=max;i++){
+        if(arr.indexOf(i) === -1){
+            console.log(i);
+        }
+    }
+}
+findMissingNumberInArray(arr,getMaxNumber,getMinNumber)
+// Find unique value from array
+function removeDuplicateArrayElement(arr){
+    return arr.filter((ele,ind,ar) => {        
+        return ar.indexOf(ele) === ind
+     })
+}
+console.log(removeDuplicateArrayElement(arr));
+[...new Set(arr)]
+var str = 'abcNjhgAhGjhfhAljhRkhgRbhjbevfhO';
+str.split('').filter(x => x === x.toUpperCase()).join('');
+"NAGARRO"
+</script>

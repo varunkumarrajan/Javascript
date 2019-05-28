@@ -1,0 +1,73 @@
+<script>
+    // Polymorphism
+    var shape = function (){};
+	shape.prototype.draw = function(){
+		return "i am generic shape";
+	}
+	//circle
+	var circle = function(){}
+	circle.prototype = Object.create(shape.prototype);
+	circle.prototype.draw= function(){
+		return "i am a circle";
+	}
+	//triangle
+	var triangle = function (){}
+	triangle.prototype = Object.create(shape.prototype);
+	triangle.prototype.draw= function(size){
+		return "this is triangle";
+	}
+    var c = new circle();    
+	//printing shapes
+	/* var shapes = [new shape(), new circle(), new triangle(23)];
+	shapes.forEach (function (shapeList){
+		console.log(shapeList.draw());
+	}); */
+    // Abstraction
+    var Car = function(){
+        if (this.constructor === Car) {
+            throw new Error("Can't instantiate abstract class");
+        }
+    }
+    Car.prototype.start = function(){
+        throw new Error('Abstract Method');
+    }
+    Car.prototype.stop = function(){
+        throw new Error('Abstract Method');
+    }
+    var MarutiCar = function(){
+        Car.apply(this, arguments);
+    }
+    // Encapsulation
+    var Remote = {
+        volume: 0,
+        volumeUp: function(){
+            volume++;
+        },
+        volumeDown: function(){
+            volume--;
+        }
+    };
+    // Inheritance
+        // prototype inheritance
+        function A() {
+            this.a = 'aa';
+        }
+        A.prototype.name = function(){
+            return 'A';
+        }
+        function B() {
+
+        }
+        // 1
+        B.prototype = A.prototype;
+        B.prototype.constructor = B;
+        // 2
+        B.prototype = Object.create(A.prototype)
+        // 3
+        function C(){
+            A.call(this);
+        }
+        C.prototype = Object.create(A.prototype)
+        var c = new C();
+        console.log(c.name());
+</script>

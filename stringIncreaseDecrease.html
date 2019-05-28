@@ -1,0 +1,25 @@
+<script>
+function stringIncrease(str,num){	
+	str = str.toLowerCase();
+	return str.replace(/[a-z]/g, function (l) {
+		let code;
+		if(num + l.charCodeAt(0) > 122){
+			code = (l.charCodeAt(0) + num - 122) + 96;
+        }else{
+			code = l.charCodeAt(0) + num;
+        }
+		return String.fromCharCode(code);        		
+	}); 
+}
+function stringDecrease(str,num){
+	return str.replace(/[a-z]/g, function (l) {
+		let code;
+		if((l.charCodeAt(0) - num) < 97){
+			code = 123 - (97 - (l.charCodeAt(0)-num));
+        }else{
+			code = l.charCodeAt(0) - num;
+        }
+		return String.fromCharCode(code);        		
+	}); 
+}
+</script>

@@ -1,0 +1,48 @@
+<script>
+  var mySingleton = (function() {
+    // Instance stores a reference to the Singleton
+    var instance;
+
+    function init() {
+      // Singleton
+
+      // Private methods and variables
+      function privateMethod(p) {
+        console.log("I am private function with " + p);
+      }
+
+      var privateVariable = "Im also private";
+
+      return {
+        // Public methods and variables
+        publicProperty: "I am also public",
+        publicMethod: function() {
+            privateMethod(privateVariable);
+            console.log("The public can see me!" + this.publicProperty);
+        },
+
+      };
+    }
+
+    return {
+      // Get the Singleton instance if one exists
+      // or create one if it doesn't
+      getInstance: function() {
+        if (!instance) {
+          instance = new init();
+        }
+
+        return instance;
+      }
+    };
+  })();
+
+  // Usage:
+
+  var singleA = mySingleton.getInstance();
+  var singleB = mySingleton.getInstance();
+  var singleC = mySingleton.getInstance();
+  // console.log(singleA instanceof mySingleton);
+  singleA.publicMethod();
+  console.log(singleA === singleC); // true
+</script>

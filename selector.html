@@ -1,0 +1,44 @@
+<style>
+    /* .class select a particular class */
+    .c {
+        background-color: red;
+    }
+    /* #id select a particular id */
+    #d {        
+        background-color: blue
+    }
+    /* * select all elements */
+    * {
+        padding: 5px;
+        border: 1px solid #000
+    }
+    /* p particular select by tag name  */
+    /* p {
+        background-color: yellow 
+    } */    
+    /* div, p select all div and p  */
+    /* div, p {
+        background-color: aqua
+    } */
+    /* select all p inside div */
+    /* div p {
+        background-color: pink
+    } */
+    /* select all p elements where the parent is a div */    
+    div > p {
+        background-color: blueviolet
+    }
+</style>
+<body>
+    <div class="c">class selector</div>
+    <div id="d">id selector</div>
+    <p>p selector</p>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>        
+        <span>
+            <p></p>
+        </span>
+    </div>
+</body>

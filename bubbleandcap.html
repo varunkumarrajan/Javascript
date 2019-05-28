@@ -1,0 +1,19 @@
+<style>
+    body * {
+        margin: 10px;
+        border: 1px solid #000000
+    }
+</style>
+<form>
+    <div>
+        <p>
+            <span></span>
+        </p>
+    </div>
+</form>
+<script>
+    for(let ele of document.querySelectorAll('*')){
+        ele.addEventListener('click', e => console.log('cap ' + ele.tagName), true)
+        ele.addEventListener('click', e => console.log('bub ' + ele.tagName))
+    }
+</script>
