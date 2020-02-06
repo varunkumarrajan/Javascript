@@ -1,4 +1,10 @@
 <script>
+const findMissingNumberInArray = arr => {
+    const len = arr.length + 1;
+    const exp = len * (len + 1) / 2;
+    const sum = arr.reduce((prev, acc) => prev + acc);
+    return exp - sum;
+}
 // Find Missing Numbers In Array
 // Via Formula upper number ((N * (N +1)) / 2) and lower number ((M * (M -1)) / 2)
 // First Example Using this formula
